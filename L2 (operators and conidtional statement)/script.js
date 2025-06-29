@@ -6,7 +6,7 @@ let c = 5;
 let b = "5";
 console.log("a == c", a==c);
 console.log("a == b", a==b);
-// === checks for equals to and also the datatype 
-// !== checks for not equals to and datatype
-console.log("a==b ?", a!==b);
-console.log("a==b ?", a===b);
+console.log("=== : checks for equals to and also the datatype");
+console.log("!== : checks for not equals to and datatype");
+console.log("a!==b ?", a!==b);
+console.log("a===b ?", a===b);

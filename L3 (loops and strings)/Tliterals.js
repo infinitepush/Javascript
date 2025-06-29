@@ -4,7 +4,7 @@ console.log(specialString);
 // now we are practically seeing how template literals is different from normal string
 let student = {
     name : "piyush tiwari",
-    cgpa : 9.0,
+    cgpa : 8.5,
     isPass : true,
 };
 console.log("The student name is ", student.name, "the student is passed ", student.isPass);

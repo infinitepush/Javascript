@@ -19,7 +19,7 @@ console.log("size of string is: ", size);
 let student = {
     name : "piyush tiwari",
     year : 1,
-    cgpa : 8.8,
+    cgpa : 8.5,
     isEligible : true,
 };
 for(let key in student ){
