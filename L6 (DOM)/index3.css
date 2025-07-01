@@ -1,0 +1,8 @@
+#box{
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    justify-content: center;
+    background-color: burlywood;
+    border: 5px solid black;
+}
