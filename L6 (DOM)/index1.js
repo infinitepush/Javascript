@@ -12,5 +12,10 @@ console.log("It is browser's object (not js) and is automatically created by bro
 console.log("it is global object with lots of properties & methods.");
 console,log("console.log is also a part of window object, alert,prompt method is also part of window object");
 console.log("We will discuss DOM now::");
-
+console.log("When a web page is loaded, the browser creates DOM of the page.");
+// All the html codes gets converted into object in js named as Document and this Document is available in window object
+// window.document provides us with all the html codes
+// we use consoole.dir(window.document) to print our document instead of console.log
+console.log("we can do dynamic changes in Js only and not in html/css..like dark-light mode etc");
+console.log("So to perform these dynamic changes we use DOM model");
 
