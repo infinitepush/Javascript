@@ -12,7 +12,7 @@
 // we do not create promise, promises are given by API's when we fetch them and then we deal with promises
 // below is a basic example of how things work in promises
 
-function getData(dataId, getNextData){
+ /* function getData(dataId, getNextData){
     return new Promise ((resolve,reject) => {
         setTimeout(()=> {
         console.log("dataId : ", dataId);
@@ -22,23 +22,84 @@ function getData(dataId, getNextData){
         }
     },5000);
     });
-}
+} */
 // "mai wada kar rha hun 5 secs baad mai return ya resolve kar dunga"
 // shuruat me kya hai ki promise pending hai aur jab data mil gaya tab promise resolved hai
-// But yeh toh promises resolve ya reject krna hua use karna toh nhi hua !! then use kaise hoga ? ::
+// But yeh toh promises resolve ya reject krna hua use karna toh nhi hua!! then use kaise hoga ? ::
 // after fulfilling of our promise we use .then and if it is error then .catch 
 // suppose we have a function that is pending and if we put .then the function will only execute if its fullfilled
-const getPromise = () => {
+
+ /* const getPromise = () => {
    return new Promise((resolve,reject) => {
         console.log("I am promised");
         // resolve("succesfull");
-        reject("error 404");
+        reject("network error 404");
     });
 };
 let promise = getPromise();
-/*promise.then(() => {
-    console.log("Promise fulfilled can go ahead");
+/*promise.then((res) => {
+    console.log("Promise fulfilled can go ahead", res);
 })*/ 
-promise.catch(() => {
-    console.log("Promise rejected sorry");
-})
+ /* promise.catch((err) => {
+    console.log("Promise rejected sorry", err);
+}); */
+
+
+// Now we will learn about promise chaining 
+/*function asyncfunc1(){  //this is asynchronous coz we using timeout
+    return new Promise((resolve,reject)=> { //this is returning promise that is either going to resolve or reject
+        setTimeout(() => {
+            console.log("some data1");
+            resolve("succesful1");
+        }, 4000);
+    });
+};
+function asyncfunc2(){  
+    return new Promise((resolve,reject)=> { 
+        setTimeout(() => {
+            console.log("some data2");
+            resolve("succesful2");
+        }, 4000);
+    });
+};
+console.log("fetching data1...");
+let P1 = asyncfunc1();
+P1.then((res) =>{
+    console.log(res);
+}); 
+console.log("fetching data2...");
+let P2 = asyncfunc2();
+P2.then((res) =>{
+    console.log(res);
+}); */
+// but these two will run at same time, but we want first then after sometime then second
+// so therefore we will use .then inside a .then
+function asyncfunc1(){  //this is asynchronous coz we using timeout
+    return new Promise((resolve,reject)=> { //this is returning promise that is either going to resolve or reject
+        setTimeout(() => {
+            console.log("some data1");
+            resolve("succesful1");
+        }, 4000);
+    });
+};
+function asyncfunc2(){  
+    return new Promise((resolve,reject)=> { 
+        setTimeout(() => {
+            console.log("some data2");
+            resolve("succesful2");
+        }, 4000);
+    });
+};
+console.log("fetching data1...");
+let P1 = asyncfunc1();
+P1.then((res) =>{
+   //console.log(res);
+    console.log("fetching data2...");
+    let P2 = asyncfunc2();
+    P2.then((res) =>{
+   //console.log(res);
+});
+}); 
+
+
+
